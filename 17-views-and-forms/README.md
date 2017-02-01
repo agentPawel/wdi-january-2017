@@ -28,6 +28,7 @@ Today we'll learn the various ways to create a form in Rails.
 
 ## Request / Response lifecycle recap (or How The Web Works™)
 
+Diagram: https://srikantmahapatra.files.wordpress.com/2013/11/mvc1.png
 - Request comes in through the Router
 - The router matches the request on the method and the path
   - When matching the path, it uses a pattern to match the path string, so we can have variable placeholders in paths
@@ -47,10 +48,13 @@ Today we'll learn the various ways to create a form in Rails.
 - [`form_tag`](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag)
   - Forms unconnected to models
   - Use the `_tag` variant of form helpers (e.g. `text_field_tag`)
+  - adds some hidden fields for us (show in browser dev tools)
+  - Notice the names of the fields. They shouldn't have changed. Eg. `title`.
 - [`form_for`](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for)
   - Create a form for doing CRUD on an object
   - We generally want to deal with objects rather than values
-  - This allows us to rely on Rails to do a lot of the heavy lifting for us
+    - This allows us to rely on Rails to do a lot of the heavy lifting for us
+  - The names of the fields have changed - they now use the `film[title]` syntax.
   - Provides a form builder to the form block that knows about the object the form is related to
 - Cross-Site Request Forgery (CSRF) Token
   - This is used to ensure malicious users don't fake like they're submitting from our site (possibly as someone else!)
@@ -60,7 +64,8 @@ Today we'll learn the various ways to create a form in Rails.
 
 - The data provided by the form is provided to your controller and your view in the `params` hash
 - The `params` hash will be the combination of all of the path params from the route as well as the params from your form
-
+- The `params` hash shows up in the server log
+- `Object.new(params)` won't work! This is insecure.
 
 ## Strong parameters
 
