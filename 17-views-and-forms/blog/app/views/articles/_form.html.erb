@@ -1,0 +1,9 @@
+<%= form_for(article) do |form_object| %>
+  <%= form_object.label :author %>
+  <%= form_object.text_field :author %><br>
+
+  <%= form_object.label :body %>
+  <%= form_object.text_field :body %><br>
+
+  <%= form_object.submit %>
+<% end %>
