@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     
     if user && user.authenticate(session_params[:password])
       flash[:notice] = 'Successfully logged in!'
+      session[:user_id] = user.id
       redirect_to root_url
     else
       flash.now[:alert] = 'Try again :('
@@ -25,3 +26,7 @@ class SessionsController < ApplicationController
   end
   
 end
+
+# params
+# flash
+# session
