@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :reservation do
-    restaurant nil
-    party_size 1
-    time "2017-02-09 11:22:37"
+    party_size { rand(1..200) }
+    time       { Time.now }
   end
 end
