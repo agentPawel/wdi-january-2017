@@ -34,7 +34,7 @@ Testing is a fundamental part of Rails. Today we'll introduce how testing works 
 * Usage of Factories with `factory_girl_rails`
 * How to run tests
   * Run all tests with `bin/rails test`
-  * Run one test with `bin/rails <testfile.rb>:<line number>`, e.g. `bin/rails test/models/user_test.rb:27`
+  * Run one test with `bin/rails test <testfile.rb>:<line number>`, e.g. `bin/rails test test/models/user_test.rb:27`
 * Seatyourself simple model tests
   * `two restaurants exist`
   * `small restaurant has small capacity`
@@ -45,6 +45,7 @@ Testing is a fundamental part of Rails. Today we'll introduce how testing works 
   * `restaurant is not available when it is full`
   * `restaurant is available when it is not full`
   * `restaurant is available for reservations later`
+  * `restaurant is not available for reservations now`
 * `bin/rails stats` command
 
 ## Links
