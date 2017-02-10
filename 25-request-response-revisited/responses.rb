@@ -12,9 +12,10 @@ require 'csv'
 # Net::HTTP.get('example.com', '/index.html')
 
 #make get request to localhost:3000/monsters
-#result = Net::HTTP.get('localhost', '/monsters', 3000)
-#puts result
+# result = Net::HTTP.get('localhost', '/monsters', 3000)
+# puts result
 
-#result = Net::HTTP.get('localhost', '/monsters.text', 3000)
-#puts result
-
+result = Net::HTTP.get('localhost', '/monsters.json', 3000)
+parsed_response = JSON.parse(result) # => This is now an Array of Hashes
+puts parsed_response.class
+puts parsed_response.first["full_name"]
