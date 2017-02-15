@@ -3,10 +3,6 @@
 $(document).ready(function() {
   // Function scope
 
-  var count = 0,
-      colors = ['tomato', 'azure', 'green', 'orange', 'purple', 'chartreuse', 'yellow', 'chocolate'];
-
-
   $('#box-maker').on('click', function() {
       var x = Math.ceil(Math.random() * 400),
           y = Math.ceil(Math.random() * 200),
@@ -23,4 +19,14 @@ $(document).ready(function() {
 
       console.log('link was clicked');
   });
+
+  $('#container').on('click', '.circle', function() {
+    $(this).remove();
+  });
+
+  // These variable definitions will be hoisted to the top,
+  //  AND they'll be closed over (a reference to them will be kept)
+  //  in the 'click' event handler defined above.
+  var count = 0,
+      colors = ['tomato', 'azure', 'green', 'orange', 'purple', 'chartreuse', 'yellow', 'chocolate'];
 });
